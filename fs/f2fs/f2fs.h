@@ -1519,7 +1519,6 @@ struct f2fs_sec_blkops_entry {
 };
 
 struct f2fs_sec_blkops_dbg {
-	unsigned long long start_time;
 	unsigned long long end_time;
 	unsigned int entry_idx;
 	unsigned int step;

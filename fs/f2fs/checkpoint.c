@@ -1212,9 +1212,8 @@ static int block_operations(struct f2fs_sb_info *sbi)
 #ifdef CONFIG_F2FS_SEC_BLOCK_OPERATIONS_DEBUG
 	struct f2fs_sec_blkops_dbg dbg_entry = {0, };
 	u64 s_jiffies, elapsed_time;
-
-	dbg_entry.start_time = local_clock();
 #endif
+	u64 start_time = local_clock();
 	blk_start_plug(&plug);
 
 	/*
@@ -1229,7 +1228,7 @@ retry_flush_quotas:
 
 		if (++cnt > DEFAULT_RETRY_QUOTA_FLUSH_COUNT ||
 			time_after64(local_clock(), 
-				dbg_entry.start_time + FLUSH_QUOTA_TIMEOUT)) {
+				start_time + FLUSH_QUOTA_TIMEOUT)) {
 			set_sbi_flag(sbi, SBI_QUOTA_SKIP_FLUSH);
 			set_sbi_flag(sbi, SBI_QUOTA_NEED_FLUSH);
 			goto retry_flush_dents;
@@ -1311,7 +1310,7 @@ out:
 #ifdef CONFIG_F2FS_SEC_BLOCK_OPERATIONS_DEBUG
 	dbg_entry.end_time = local_clock();
 	
-	elapsed_time = dbg_entry.end_time - dbg_entry.start_time;
+	elapsed_time = dbg_entry.end_time - start_time;
 	if (time_after64(elapsed_time, (u64)F2FS_SEC_BLKOPS_LOGGING_THR)) {
 		dbg_entry.ret_val = err;
 		dbg_entry.entry_idx = sbi->s_sec_blkops_total++;
