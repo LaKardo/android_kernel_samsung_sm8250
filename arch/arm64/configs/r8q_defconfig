@@ -445,13 +445,6 @@ CONFIG_SETEND_EMULATION=y
 # CONFIG_UH_LKM_BLOCK is not set
 
 #
-# Control Flow Protection
-#
-# CONFIG_CFP is not set
-# CONFIG_CFP_JOPP is not set
-# CONFIG_CFP_ROPP is not set
-
-#
 # ARMv8.1 architectural features
 #
 CONFIG_ARM64_HW_AFDBM=y
