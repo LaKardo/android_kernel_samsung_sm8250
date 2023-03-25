@@ -1,0 +1,61 @@
+config SAMSUNG_DEBUG_DISPLAY
+	bool "Add Samsung Debugging code"
+	default n
+
+config DISPLAY_SAMSUNG
+	bool "mdss config for samsung product"
+	default n
+	---help---
+	Mdss config signature for samsung product
+
+#
+#	PANEL UNIQUE FEATURE
+#
+config DUAL_PANEL
+	depends on DISPLAY_SAMSUNG
+	bool "dual paneloperation"
+	default n
+	---help---
+	dual panel operation support
+
+config PARTIAL_UPDATE
+	depends on DISPLAY_SAMSUNG
+	bool "partial update operation"
+	default n
+	---help---
+	partial update operation support
+
+config CABC_FUNCTION
+	depends on DISPLAY_SAMSUNG
+	bool "DDI cabc operation"
+	default n
+	---help---
+	DDI cabc operation support
+
+config SUPPORT_POC_FLASH
+	depends on DISPLAY_SAMSUNG
+	bool "SUPPORT POC FLASH"
+	default n
+	---help---
+	SUPPORT_POC_FLASH FOR DREAM2 ONLY
+
+config PANEL_EA8076A_AMS646UJ10_FHD
+	depends on DISPLAY_SAMSUNG
+	bool "MAGNA EA8076A LDI"
+	default n
+	---help---
+	MAGNA EA8076A LDI 1080_2400 R8_Rev00
+
+config PANEL_EA8079B_AMS646YB01_FHD
+	depends on DISPLAY_SAMSUNG
+	bool "MAGNA EA8079B LDI"
+	default n
+	---help---
+	MAGNA EA8079B LDI 1080_2400 R8_Rev01
+
+config PANEL_S6E3FC3_AMS646YD01_FHD
+	depends on DISPLAY_SAMSUNG
+	bool "SEC S6E3FC3 LDI"
+	default n
+	---help---
+	SEC S6E3FC3 LDI 1080_2400 A52XQ and R8_Rev07
